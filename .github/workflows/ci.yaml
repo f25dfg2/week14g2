@@ -63,7 +63,7 @@ jobs:
         run: docker run -d -p 2222:80 ${{ secrets.DOCKERHUB_USERNAME }}/w14g2:latest
       - name: List Running Containers
         run: docker container ls
-      # - name: Stop The Running Containers
-      #   run: docker container stop $(docker container ls)
-      # - name: Kill all the unsed resoruces at Runner
-      #   run: docker system prune -a --volumes
+      - name: Stop The Running Containers
+        run: docker container stop $(docker container ls -q)
+      - name: Kill all the unsed resoruces at Runner
+        run: docker system prune -af --volumes
