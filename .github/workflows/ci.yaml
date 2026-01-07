@@ -52,6 +52,6 @@ jobs:
       - name: List the Available Images on Runner
         run: docker image ls
       - name: Create and Run Container from New Image
-        run: docker container run -d -p 2222:80 static-website:latest
+        run: docker container run -d -p 2222:80 ${{ secrets.DOCKERHUB_USERNAME }}/w14g2:latest
       - name: List The Running COntainers
         run: docker container ls  
